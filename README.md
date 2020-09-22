@@ -1,0 +1,1 @@
+At the current state a basic application backend layout using flask and python
