@@ -31,6 +31,9 @@ def create_app(test_config=None):
     env = getEnv("dev")
     app = init_db(app,env)
     db.init_app(app)
+    '''
+    Add any created model that you want to be added to the migration-able models list
+    '''
     from  src.domain import User
     migrate.init_app(app, db)
     # jwt = JWT(app, authenticate, identity)
