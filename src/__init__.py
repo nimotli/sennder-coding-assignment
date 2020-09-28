@@ -4,7 +4,7 @@ from src.config.Blueprint import registerBluePrints
 from flask_jwt import JWT, jwt_required, current_identity
 from src.config.ApplicationProperties import getEnv
 from src.config.DatabaseConfiguration import init_db
-from flask_sqlalchemy import SQLAlchemy
+from src.config.Envirement import db,migrate
 
 import os
 def create_app(test_config=None):
@@ -30,7 +30,9 @@ def create_app(test_config=None):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     env = getEnv("dev")
     app = init_db(app,env)
-    db = SQLAlchemy(app)
+    db.init_app(app)
+    from  src.domain import User
+    migrate.init_app(app, db)
     # jwt = JWT(app, authenticate, identity)
     app = registerBluePrints(app)
     return app

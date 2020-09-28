@@ -7,7 +7,7 @@ def init_db(app,env):
     password=env['datasource']['password']
     port=env['datasource']['port']
     database=env['datasource']['database']
-    cnxString = 'mssql+pyodbc://{}:{}@{}/{}?driver={}'.format(username,password,host,database,driver)
+    cnxString = 'mysql+pymysql://{}:{}@{}:{}/{}'.format(username,password,host,port,database)
     app.config['SQLALCHEMY_DATABASE_URI'] = cnxString
     # engine = sa.create_engine(cnxString)
     print("-"*40)
