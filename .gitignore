@@ -1,5 +1,4 @@
 venv/
-resources/
 *.pyc
 __pycache__/
 

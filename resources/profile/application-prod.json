@@ -1,0 +1,8 @@
+{
+    "datasource" : {
+        "type":"",
+        "host":"",
+        "username":"",
+        "password":""
+    }
+}

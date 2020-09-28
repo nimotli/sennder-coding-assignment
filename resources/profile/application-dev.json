@@ -1,0 +1,11 @@
+{
+    "datasource" : {
+        "type":"mssql",
+        "driver":"{SQL Server Native Client 11.0}",
+        "host":"localhost",
+        "database":"sandbox",
+        "port":"3306",
+        "username":"sandboxUser",
+        "password":"sandboxPassword"
+    }
+}
