@@ -7,5 +7,7 @@
         "port":"3306",
         "username":"sandboxUser",
         "password":"sandboxPassword"
-    }
+    },
+    "jwt_secret":"G1GCRMXEpH9WgC0",
+    "auth_url":"/api/authenticate"
 }

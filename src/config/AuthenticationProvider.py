@@ -1,17 +1,12 @@
-def authenticate():
-    #implement
-    #check if the credintials match a user in the database
-    #return the matched user
-    print("authenticate")
+from src.domain.User import User
+from werkzeug.security import check_password_hash, generate_password_hash
 
-
-def generateToken():
-    #implement
-    print("token generated")
+def authenticate(username, password):
+    user = User.query.filter_by(username=username).first()
+    if user and check_password_hash(user.password,password):
+        return user
 
 
 def identity(payload):
-    #implement
-    #get a user by the id in the parsed token passed in the payload
-    #return that user object
-    print("fields parsed")
+    user_id = payload['identity']
+    return User.query.get(user_id)

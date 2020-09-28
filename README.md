@@ -31,6 +31,13 @@ It's an easy to understand layered Flask architecture for application backends, 
 
 ### ORM
 
+### Authentication
+#### JWT
+- Requires a valid database connection and to already launch a migration
+- /register to create a new user
+- /api/authenticate [POST] to get jwt token
+- Send username and password
+- Pass the recieved token as a header "Authorization":"JWT your_generated_token"
 
 ### Database Configuration
 
@@ -39,3 +46,7 @@ It's an easy to understand layered Flask architecture for application backends, 
 
 
 ### Profiles
+
+
+### Routing
+

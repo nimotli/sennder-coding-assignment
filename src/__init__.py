@@ -5,7 +5,7 @@ from flask_jwt import JWT, jwt_required, current_identity
 from src.config.ApplicationProperties import getEnv
 from src.config.DatabaseConfiguration import init_db
 from src.config.Envirement import db,migrate
-
+from src.config.AuthenticationProvider import authenticate,identity
 import os
 def create_app(test_config=None):
     # create and configure the app
@@ -27,8 +27,11 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     env = getEnv("dev")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config['SECRET_KEY'] = env['jwt_secret']
+    app.config['JWT_AUTH_URL_RULE'] = env['auth_url']
+    jwt = JWT(app, authenticate, identity)
     app = init_db(app,env)
     db.init_app(app)
     '''
@@ -36,6 +39,5 @@ def create_app(test_config=None):
     '''
     from  src.domain import User
     migrate.init_app(app, db)
-    # jwt = JWT(app, authenticate, identity)
     app = registerBluePrints(app)
     return app
