@@ -1,4 +1,4 @@
-# Flask Application Structure
+# Flask Application Structure (DONT USE YET ONGOING WORK)
 
 It's an easy to understand layered Flask architecture for application backends, inspired by Jhipster
 
