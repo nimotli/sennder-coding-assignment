@@ -1,6 +1,6 @@
 {
     "datasource" : {
-        "type":"mssql",
+        "type":"mysql+pymysql",
         "driver":"{SQL Server Native Client 11.0}",
         "host":"localhost",
         "database":"sandbox",
