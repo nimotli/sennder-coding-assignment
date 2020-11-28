@@ -1,9 +1,9 @@
 
 from flask import Flask
 from src.config.Blueprint import registerBluePrints
-from flask_jwt import JWT, jwt_required, current_identity
+from flask_jwt import JWT, current_identity
 from src.config.DatabaseConfiguration import init_db
-from src.config.Environment import db,migrate
+from src.config.Environment import db,migrate,cache
 from src.config.AuthenticationProvider import authenticate,identity
 from src.config.Configure import configure_app
 import os
@@ -16,6 +16,7 @@ def create_app(profile="dev"):
     app,env = configure_app(app,profile)
     jwt = JWT(app, authenticate, identity)
     app = init_db(app,env)
+    cache.init_app(app)
     db.init_app(app)
     '''
     Add any created model that you want to be added to the migration-able models list

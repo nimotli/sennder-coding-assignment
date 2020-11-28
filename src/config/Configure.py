@@ -15,4 +15,5 @@ def configure_app(app,profile):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config['SECRET_KEY'] = env['jwt_secret']
     app.config['JWT_AUTH_URL_RULE'] = env['auth_url']
+    app.config['CACHE_TYPE'] = env['caching_type']
     return app,env
