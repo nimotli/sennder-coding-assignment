@@ -1,6 +1,6 @@
 {
     "datasource" : {
-        "type":"mysql+pymysql",
+        "type":"sqlite",
         "driver":"{SQL Server Native Client 11.0}",
         "host":"localhost",
         "database":"sandbox",
