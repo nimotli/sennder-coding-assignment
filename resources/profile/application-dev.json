@@ -1,6 +1,6 @@
 {
     "datasource" : {
-        "type":"mysql+pymysql",
+        "type":"sqlite",
         "driver":"{SQL Server Native Client 11.0}",
         "host":"localhost",
         "database":"sandbox",
@@ -9,5 +9,6 @@
         "password":"sandboxPassword"
     },
     "jwt_secret":"G1GCRMXEpH9WgC0",
-    "auth_url":"/api/authenticate"
+    "auth_url":"/api/authenticate",
+    "caching_type":"simple"
 }
