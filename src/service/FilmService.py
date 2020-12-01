@@ -9,10 +9,11 @@ def get_all_films_json():
         data = json.loads(filmRaw.read().decode())
     return data
 
-def get_all_films():
-    data = get_all_films_json()
-    people_by_film = get_people_by_movie()
-
+def get_all_films(film_data = get_all_films_json,people_data = PeopleService.get_all_people):
+    data = film_data()
+    allPeople = people_data()
+    
+    people_by_film = get_people_by_movie(allPeople)
     films = list(map(lambda d: 
         FilmDTO(d['id'], d['title'], d['description'], d['director'], d['producer'], d['release_date'], d['rt_score'],
         people_by_film[d['id']] if d['id'] in people_by_film.keys() is not None else []
@@ -20,8 +21,7 @@ def get_all_films():
     , data))
     return films
 
-def get_people_by_movie():
-    allPeople = PeopleService.get_all_people()
+def get_people_by_movie(allPeople):
     peopleByFilmList = get_people_by_film_list(allPeople)
     peopleByFilm = get_people_by_film_dict(peopleByFilmList)
     return peopleByFilm

@@ -1,8 +1,9 @@
 {
     "datasource" : {
         "type":"sqlite",
-        "database":"sandbox"
+        "database":"sandbox_test"
     },
     "jwt_secret":"G1GCRMXEpH9WgC0",
-    "auth_url":"/api/authenticate"
+    "auth_url":"/api/authenticate",
+    "caching_type":"simple"
 }
