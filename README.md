@@ -29,8 +29,7 @@ pytest
 ### Api
 The main part of the app is the "/api/films" api
 the returned data is formated as follow:
-```
-json
+```json
 [
     {
         "description": "filler description",
