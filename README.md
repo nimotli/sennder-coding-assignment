@@ -4,27 +4,17 @@ Allright, this is my solution for the coding assignment.
 
 ### Setup
 - Clone the project
-- Create a virtual env 
+- Build the image
 ```
-python -m venv venv
+docker build -t senndercodingassignment:latest .
 ```
-- Activate the virtual envirement
-- Install the requirements
+- run the image
 ```
-pip install -r requirements.txt
+docker run -it -p 8000:5000 senndercodingassignment
 ```
-- Set the flask app path
-```
-set FLASK_APP=src
-```
-- start the app
-```
-flask run -p 8000
-```
-- To run the tests
-```
-pytest
-```
+- the main page is on http://localhost:8000/movies
+- or you can checkout the api response directly on http://localhost:8000/api/films
+
 
 ### Api
 The main part of the app is the "/api/films" api
