@@ -29,8 +29,7 @@ pytest
 ### Api
 The main part of the app is the "/api/films" api
 the returned data is formated as follow:
-```
-json
+```json
 [
     {
         "description": "filler description",
@@ -58,7 +57,7 @@ json
 ### About
 
 While the front end part is a complete eye sore i believe the back end is decently clean and structured. the architecture i went with is inspired from a java framework (JHIPSTER) with the code being split into 3 layers web,service and repository with a linear import path (web <= service <= repository), so this is a checkmark on one of the pricipals of a REST api.
-Going to the next poing which is statelessness, which is achieved by not using any session based auth, and i went with a simple JWT based auth (not implement on the front-end yet).
 Caching was hinted at, in the assignment's description so i just followed the instructions and added it to the main api.
+I also added some basic unit tests and a JWT authentication that i ended up not implementing on the front end.
 
 
